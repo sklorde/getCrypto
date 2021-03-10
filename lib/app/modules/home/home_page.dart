@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:getCrypto/app/widgets/card_crypto/card_crypto_widget.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:getCrypto/app/widgets/card_trending/card_trending_widget.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
-  final String title;
-  const HomePage({Key key, this.title = "Home"}) : super(key: key);
-
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends ModularState<HomePage, HomeController> {
-  //use 'controller' variable to access controller
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -78,20 +75,27 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   ),
                 ),
               ),
-              Expanded(
-                child: ListView.separated(
-                  physics: BouncingScrollPhysics(),
-                  itemCount: 6,
-                  itemBuilder: (context, index) {
-                    return CardCryptoWidget();
-                  },
-                  separatorBuilder: (context, index) {
-                    return Padding(
-                      padding: EdgeInsets.only(top: 15),
-                    );
-                  },
-                ),
-              ),
+              Expanded(child: Observer(builder: (_) {
+                return SmartRefresher(
+                  controller: controller.refreshController,
+                  onLoading: controller.onLoad,
+                  onRefresh: controller.onRefresh,
+                  enablePullDown: true,
+                  enablePullUp: true,
+                  child: ListView.separated(
+                    physics: BouncingScrollPhysics(),
+                    itemCount: controller.cryptos.length,
+                    itemBuilder: (context, index) {
+                      return CardCryptoWidget();
+                    },
+                    separatorBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.only(top: 15),
+                      );
+                    },
+                  ),
+                );
+              })),
             ],
           ),
         ),
