@@ -1,5 +1,5 @@
 import 'dart:async';
-import 'package:dio/dio.dart';
+import 'dart:convert';
 import 'package:dio/native_imp.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:getCrypto/app/shared/models/Crypto.dart';
@@ -16,31 +16,25 @@ class CryptoApiRepository extends Disposable {
         "9241f899-3d6c-4675-8f78-58b221454014";
   }
 
-  int _offset = 0;
-  int _limit = 1;
-
   Future<List<Crypto>> getCryptos() async {
     List<Crypto> list = <Crypto>[];
+    Crypto crypto;
 
-    for (int i = _offset; i < _limit + _offset; i++) {
-      Crypto crypto;
+    if (crypto == null) {
+      crypto = await _getCrypto();
+    }
 
-      if (crypto == null) {
-        crypto = await _getCrypto();
-      }
-
-      if (crypto != null) {
-        list.add(crypto);
-      }
+    if (crypto != null) {
+      list.add(crypto);
     }
 
     return list;
   }
 
   Future<Crypto> _getCrypto() async {
-    final result = await _client.get(
-      'https://data.messari.io/api/v2/assets?fields=symbol,name,metrics/market_data/price_usd',
-    );
+    String url =
+        'https://data.messari.io/api/v2/assets?fields=symbol,name,metrics/market_data/price_usd';
+    final result = await _client.get(url);
     final crypto = Crypto.fromJson(result.data);
 
     return crypto;
