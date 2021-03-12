@@ -1,12 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:getCrypto/app/shared/models/Crypto.dart';
 
 class CardCryptoWidget extends StatelessWidget {
-  final String name;
-  final String symbol;
-  final double priceusd;
+  final Crypto crypto;
 
-  const CardCryptoWidget({Key key, this.name, this.symbol, this.priceusd})
-      : super(key: key);
+  const CardCryptoWidget({Key key, this.crypto}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -31,7 +29,7 @@ class CardCryptoWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    name,
+                    crypto.name,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 17,
@@ -39,7 +37,7 @@ class CardCryptoWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    symbol,
+                    crypto.symbol,
                     style: TextStyle(
                       color: Color.fromRGBO(143, 148, 155, 1),
                       fontSize: 17,
@@ -55,7 +53,7 @@ class CardCryptoWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  '\$ ${priceusd.toStringAsFixed(2)}',
+                  '\$ ${crypto.metrics.marketData.priceUsd.toStringAsFixed(2)}',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 17,

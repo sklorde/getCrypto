@@ -86,10 +86,10 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                     physics: BouncingScrollPhysics(),
                     itemCount: controller.cryptos.length,
                     itemBuilder: (context, index) {
+                      final crypto = controller.cryptos[index];
+
                       return CardCryptoWidget(
-                        name: controller.cryptos[index].name,
-                        symbol: controller.cryptos[index].symbol,
-                        priceusd: controller.cryptos[index].priceusd,
+                        crypto: crypto,
                       );
                     },
                     separatorBuilder: (context, index) {
