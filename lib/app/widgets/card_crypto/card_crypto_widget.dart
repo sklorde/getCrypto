@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 class CardCryptoWidget extends StatelessWidget {
   final String name;
+  final String symbol;
+  final double priceusd;
 
-  const CardCryptoWidget({Key key, this.name}) : super(key: key);
+  const CardCryptoWidget({Key key, this.name, this.symbol, this.priceusd})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +31,7 @@ class CardCryptoWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Bitcoin',
+                    name,
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 17,
@@ -36,7 +39,7 @@ class CardCryptoWidget extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'BTC',
+                    symbol,
                     style: TextStyle(
                       color: Color.fromRGBO(143, 148, 155, 1),
                       fontSize: 17,
@@ -52,7 +55,7 @@ class CardCryptoWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  '\$229.84',
+                  '\$ ${priceusd.toStringAsFixed(2)}',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 17,

@@ -80,14 +80,16 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                   controller: controller.refreshController,
                   onLoading: controller.onLoad,
                   onRefresh: controller.onRefresh,
-                  enablePullDown: true,
-                  enablePullUp: true,
+                  enablePullDown: false,
+                  enablePullUp: false,
                   child: ListView.separated(
                     physics: BouncingScrollPhysics(),
                     itemCount: controller.cryptos.length,
                     itemBuilder: (context, index) {
                       return CardCryptoWidget(
                         name: controller.cryptos[index].name,
+                        symbol: controller.cryptos[index].symbol,
+                        priceusd: controller.cryptos[index].priceusd,
                       );
                     },
                     separatorBuilder: (context, index) {

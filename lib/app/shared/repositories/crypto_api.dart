@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:convert';
 import 'package:dio/native_imp.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:getCrypto/app/shared/models/Crypto.dart';
@@ -18,26 +17,24 @@ class CryptoApiRepository extends Disposable {
 
   Future<List<Crypto>> getCryptos() async {
     List<Crypto> list = <Crypto>[];
-    Crypto crypto;
 
-    if (crypto == null) {
-      crypto = await _getCrypto();
-    }
-
-    if (crypto != null) {
-      list.add(crypto);
-    }
+    list = await _getCrypto();
 
     return list;
   }
 
-  Future<Crypto> _getCrypto() async {
+  Future<List<Crypto>> _getCrypto() async {
     String url =
         'https://data.messari.io/api/v2/assets?fields=symbol,name,metrics/market_data/price_usd';
-    final result = await _client.get(url);
-    final crypto = Crypto.fromJson(result.data);
+    List<Crypto> list = <Crypto>[];
 
-    return crypto;
+    final result = await _client.get(url);
+
+    result.data['data'].forEach((json) {
+      list.add(Crypto.fromJson(json));
+    });
+
+    return list;
   }
 
   @override
