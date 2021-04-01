@@ -18,10 +18,8 @@ class CardCryptoWidget extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Row(
           children: [
-            Image.asset(
-              'lib/app/assets/images/cryptos/btc.png',
-              height: 45,
-            ),
+            Image.network(
+                'https://static.coincap.io/assets/icons/${crypto.symbol.toLowerCase()}@2x.png'),
             Padding(
               padding: EdgeInsets.only(left: 20),
               child: Column(
