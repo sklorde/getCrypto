@@ -3,8 +3,8 @@
 <p align="center">A mobile app to see cryptocurrencies.</p>
 
 <p align="center">
-	<a href="https://dart.dev/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Made%20with-Dart-blue?style=for-the-badge&logo=Dart&logoColor=blue&logoWidth=15"></a>
-  <a href="https://flutter.dev/"><img src="https://img.shields.io/badge/Made%20with-Flutter-blue?style=for-the-badge&logo=Flutter&logoColor=blue&logoWidth=15"></a>
+   <a href="https://dart.dev/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/%20-dart-0175C2.svg?style=for-the-badge&logo=dart"></a>
+   <a href="https://flutter.dev/"><img src="https://img.shields.io/badge/%20-flutter-02569B.svg?style=for-the-badge&logo=flutter"></a>
 </p>
 
 <p align="center">
