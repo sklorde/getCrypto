@@ -44,16 +44,16 @@ class Metrics {
 }
 
 class MarketData {
-  double priceUsd;
-  double priceBtc;
-  double priceEth;
-  double volumeLast24Hours;
-  double realVolumeLast24Hours;
-  double volumeLast24HoursOverstatementMultiple;
-  double percentChangeUsdLast1Hour;
-  double percentChangeUsdLast24Hours;
-  double percentChangeBtcLast24Hours;
-  double percentChangeEthLast24Hours;
+  num priceUsd;
+  num priceBtc;
+  num priceEth;
+  num volumeLast24Hours;
+  num realVolumeLast24Hours;
+  num volumeLast24HoursOverstatementMultiple;
+  num percentChangeUsdLast1Hour;
+  num percentChangeUsdLast24Hours;
+  num percentChangeBtcLast24Hours;
+  num percentChangeEthLast24Hours;
   OhlcvLast1Hour ohlcvLast1Hour;
   OhlcvLast1Hour ohlcvLast24Hour;
   String lastTradeAt;
@@ -119,11 +119,11 @@ class MarketData {
 }
 
 class OhlcvLast1Hour {
-  double open;
-  double high;
-  double low;
-  double close;
-  double volume;
+  num open;
+  num high;
+  num low;
+  num close;
+  num volume;
 
   OhlcvLast1Hour({this.open, this.high, this.low, this.close, this.volume});
 
