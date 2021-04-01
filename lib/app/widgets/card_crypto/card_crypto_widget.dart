@@ -61,7 +61,7 @@ class CardCryptoWidget extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '+ 2.97%',
+                  '${crypto.metrics.marketData.percentChangeUsdLast24Hours.toStringAsFixed(2).replaceAll('.', ',')}%',
                   style: TextStyle(
                     color: Color.fromRGBO(31, 148, 111, 1),
                     fontWeight: FontWeight.w600,
