@@ -3,7 +3,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:getCrypto/app/widgets/card_crypto/card_crypto_widget.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
-import 'package:getCrypto/app/widgets/card_trending/card_trending_widget.dart';
 import 'home_controller.dart';
 
 class HomePage extends StatefulWidget {
