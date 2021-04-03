@@ -24,11 +24,9 @@ class CryptoApiRepository extends Disposable {
   }
 
   Future<List<Crypto>> _getCrypto() async {
-    String url =
-        'https://data.messari.io/api/v2/assets?fields=symbol,name,metrics/market_data';
     List<Crypto> list = <Crypto>[];
 
-    final result = await _client.get(url);
+    final result = await _client.get('https://api.coincap.io/v2/assets');
 
     result.data['data'].forEach((json) {
       list.add(Crypto.fromJson(json));

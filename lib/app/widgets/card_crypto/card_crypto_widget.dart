@@ -51,7 +51,7 @@ class CardCryptoWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
                 Text(
-                  '\$ ${crypto.metrics.marketData.priceUsd.toStringAsFixed(2)}',
+                  '\$ ${num.parse(crypto.priceUsd).toStringAsFixed(2)}',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 17,
@@ -59,7 +59,7 @@ class CardCryptoWidget extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  '${crypto.metrics.marketData.percentChangeUsdLast24Hours.toStringAsFixed(2).replaceAll('.', ',')}%',
+                  '${num.parse(crypto.changePercent24Hr).toStringAsFixed(2).replaceAll('.', ',')}%',
                   style: TextStyle(
                     color: Color.fromRGBO(31, 148, 111, 1),
                     fontWeight: FontWeight.w600,
