@@ -11,6 +11,7 @@ class Crypto {
   String changePercent24Hr;
   String vwap24Hr;
   String explorer;
+  String imageUrl;
 
   Crypto(
       {this.id,
@@ -24,7 +25,8 @@ class Crypto {
       this.priceUsd,
       this.changePercent24Hr,
       this.vwap24Hr,
-      this.explorer});
+      this.explorer,
+      this.imageUrl});
 
   Crypto.fromJson(Map<String, dynamic> json) {
     id = json['id'];

@@ -26,7 +26,10 @@ class CryptoApiRepository extends Disposable {
     final result = await _client.get('https://api.coincap.io/v2/assets');
 
     result.data['data'].forEach((json) {
-      list.add(Crypto.fromJson(json));
+      Crypto crypto = Crypto.fromJson(json);
+      crypto.imageUrl =
+          'https://static.coincap.io/assets/icons/${crypto.symbol.toLowerCase()}@2x.png';
+      list.add(crypto);
     });
 
     return list;
