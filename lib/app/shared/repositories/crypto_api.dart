@@ -10,10 +10,7 @@ class CryptoApiRepository extends Disposable {
     _init();
   }
 
-  _init() async {
-    _client.options.headers["x-messari-api-key"] =
-        "9241f899-3d6c-4675-8f78-58b221454014";
-  }
+  _init() async {}
 
   Future<List<Crypto>> getCryptos() async {
     List<Crypto> list = <Crypto>[];
