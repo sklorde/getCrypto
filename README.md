@@ -17,7 +17,7 @@
 
 ## Key Features
 * Get cryptocurrencies using API
-  - Use MessariAPI and CoinCapAPI
+  - Use CoinCapAPI to get crypto's data
 * Coin data
   - Receive percent/price changes and others datas
 
