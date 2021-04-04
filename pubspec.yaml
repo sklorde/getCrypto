@@ -34,7 +34,7 @@ flutter:
   uses-material-design: true
 
   assets:
-    - lib/app/assets/images/cryptos/btc.png
+    - lib/app/assets/images/cryptos/coinBase.png
 
   # fonts:
   #   - family: Schyler
