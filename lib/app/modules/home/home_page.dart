@@ -19,9 +19,40 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
         width: MediaQuery.of(context).size.width,
         color: Color.fromRGBO(11, 20, 37, 1),
         child: Padding(
-          padding: EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 35),
+          padding: EdgeInsets.only(left: 20, right: 20, bottom: 20, top: 20),
           child: Column(
             children: [
+              Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'getCrypto',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Align(
+                        alignment: Alignment.centerRight,
+                        child: IconButton(
+                          icon: Icon(Icons.filter_list_rounded),
+                          iconSize: 38,
+                          color: Colors.white,
+                          onPressed: () {},
+                          enableFeedback: false,
+                          splashRadius: 0.1,
+                        ),
+                      ),
+                    ],
+                  ),
+                  Divider(
+                    color: Color.fromRGBO(41, 55, 76, 1).withOpacity(0.42),
+                  ),
+                ],
+              ),
               Expanded(child: Observer(builder: (_) {
                 return SmartRefresher(
                   controller: controller.refreshController,
