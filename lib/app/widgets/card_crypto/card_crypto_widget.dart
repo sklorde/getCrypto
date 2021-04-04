@@ -18,7 +18,10 @@ class CardCryptoWidget extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Row(
           children: [
-            Image.network(crypto.imageUrl),
+            FadeInImage.assetNetwork(
+              placeholder: 'lib/app/assets/images/cryptos/coinBase.png',
+              image: crypto.imageUrl,
+            ),
             Padding(
               padding: EdgeInsets.only(left: 20),
               child: Column(
