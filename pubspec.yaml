@@ -36,14 +36,26 @@ flutter:
   assets:
     - lib/app/assets/images/cryptos/coinBase.png
 
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
-  #       - asset: fonts/Schyler-Italic.ttf
-  #         style: italic
-  #   - family: Trajan Pro
-  #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
-  #         weight: 700
+fonts:
+    - family: Poppins
+      fonts:
+        - asset: lib/assets/fonts/Poppins-ExtraLight.ttf
+          weight: 100
+        - asset: lib/assets/fonts/Poppins-Thin.ttf
+          weight: 200
+        - asset: lib/assets/fonts/Poppins-Light.ttf
+          weight: 300          
+        - asset: lib/assets/fonts/Poppins-Regular.ttf          
+          weight: 400
+        - asset: lib/assets/fonts/Poppins-Medium.ttf          
+          weight: 500
+        - asset: lib/assets/fonts/Poppins-SemiBold.ttf          
+          weight: 600
+        - asset: lib/assets/fonts/Poppins-Bold.ttf
+          weight: 700
+        - asset: lib/assets/fonts/Poppins-Black.ttf
+          weight: 800
+        - asset: lib/assets/fonts/Poppins-ExtraBold.ttf
+          weight: 900 
+        - asset: lib/assets/fonts/Poppins-BoldItalic.ttf
+          style: italic       
