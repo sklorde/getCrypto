@@ -41,7 +41,9 @@ You can [download](https://github.com/sklorde/getCrypto/releases) the latest APK
 
 ## Uses
 This software uses the following open source packages:
-- [PullToRefresh](https://github.com/peng8350/flutter_pulltorefresh)
+- [Pull to Refresh](https://github.com/peng8350/flutter_pulltorefresh) [Refresh pages]
+- [Octo Image](https://github.com/Baseflow/octo_image) [Show image/error/placeholder]
+- [Cached Network Image](https://github.com/Baseflow/flutter_cached_network_image) [Image provider with cache to use with Octo Image]
 ## License
 
 MIT
