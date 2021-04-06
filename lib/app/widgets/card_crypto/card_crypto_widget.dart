@@ -1,5 +1,8 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:getCrypto/app/shared/models/Crypto.dart';
+import 'package:getCrypto/app/utils/getcrypto_colors.dart';
+import 'package:octo_image/octo_image.dart';
 
 class CardCryptoWidget extends StatelessWidget {
   final Crypto crypto;
@@ -18,9 +21,18 @@ class CardCryptoWidget extends StatelessWidget {
         padding: EdgeInsets.all(20),
         child: Row(
           children: [
-            FadeInImage.assetNetwork(
-              placeholder: 'lib/app/assets/images/cryptos/coinBase.png',
-              image: crypto.imageUrl,
+            Container(
+              height: 64,
+              width: 64,
+              child: OctoImage(
+                image: CachedNetworkImageProvider(crypto.imageUrl),
+                progressIndicatorBuilder: (context, progress) =>
+                    CircularProgressIndicator(
+                  backgroundColor: GetCryptoColors.primary,
+                ),
+                errorBuilder: (context, error, stacktrace) =>
+                    Image.asset('lib/app/assets/images/cryptos/coinBase.png'),
+              ),
             ),
             Padding(
               padding: EdgeInsets.only(left: 20),
