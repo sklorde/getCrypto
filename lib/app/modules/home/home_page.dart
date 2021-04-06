@@ -49,9 +49,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
                       ),
                     ],
                   ),
-                  Divider(
-                    color: GetCryptoColors.secundary,
-                  ),
+                  Divider(color: GetCryptoColors.secundary),
                 ],
               ),
               Expanded(
