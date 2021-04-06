@@ -46,6 +46,7 @@ class CardCryptoWidget extends StatelessWidget {
                       color: Colors.white,
                       fontSize: 17,
                       letterSpacing: 0.3,
+                      fontWeight: FontWeight.w700,
                     ),
                   ),
                   Text(
@@ -75,7 +76,9 @@ class CardCryptoWidget extends StatelessWidget {
                 Text(
                   '${num.parse(crypto.changePercent24Hr).toStringAsFixed(2).replaceAll('.', ',')}%',
                   style: TextStyle(
-                    color: Color.fromRGBO(31, 148, 111, 1),
+                    color: crypto.changePercent24Hr.startsWith('-')
+                        ? Colors.red
+                        : Color.fromRGBO(31, 148, 111, 1),
                     fontWeight: FontWeight.w600,
                   ),
                 ),
