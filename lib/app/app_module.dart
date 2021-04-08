@@ -1,6 +1,6 @@
 import 'package:dio/native_imp.dart';
-import 'package:getCrypto/app/modules/sub/home/info/info_controller.dart';
 import 'package:getCrypto/app/shared/repositories/crypto_api.dart';
+import 'modules/home/sub/info/info_controller.dart';
 import 'widgets/card_crypto/card_crypto_controller.dart';
 import 'app_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';

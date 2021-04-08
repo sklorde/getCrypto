@@ -1,5 +1,4 @@
-import 'package:getCrypto/app/modules/sub/home/info/info_page.dart';
-
+import 'package:getCrypto/app/modules/home/sub/info/info_page.dart';
 import 'home_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 
