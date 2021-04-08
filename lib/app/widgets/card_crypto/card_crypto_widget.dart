@@ -14,7 +14,7 @@ class CardCryptoWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Modular.to.pushNamed('/info');
+        Modular.to.pushNamed('/info', arguments: crypto);
       },
       child: Container(
         height: 100,
