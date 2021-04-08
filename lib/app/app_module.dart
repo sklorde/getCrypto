@@ -1,5 +1,7 @@
 import 'package:dio/native_imp.dart';
+import 'package:getCrypto/app/modules/sub/home/info/info_controller.dart';
 import 'package:getCrypto/app/shared/repositories/crypto_api.dart';
+import 'modules/sub/home/info/info_page.dart';
 import 'widgets/card_crypto/card_crypto_controller.dart';
 import 'app_controller.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -13,11 +15,13 @@ class AppModule extends MainModule {
         Bind((i) => CryptoApiRepository(DioForNative())),
         Bind((i) => AppController()),
         Bind((i) => CardCryptoController),
+        Bind((i) => InfoController()),
       ];
 
   @override
   List<ModularRouter> get routers => [
-        ModularRouter(Modular.initialRoute, module: HomeModule()),
+        ModularRouter('/', module: HomeModule()),
+        ModularRouter('/info', module: HomeModule()),
       ];
 
   @override
