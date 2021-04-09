@@ -19,39 +19,39 @@ final $InfoController = BindInject(
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic
 
 mixin _$InfoController on _InfoControllerBase, Store {
-  final _$valueAtom = Atom(name: '_InfoControllerBase.value');
+  final _$cryptoHistoryAtom = Atom(name: '_InfoControllerBase.cryptoHistory');
 
   @override
-  int get value {
-    _$valueAtom.reportRead();
-    return super.value;
+  ObservableList<CryptoHistory> get cryptoHistory {
+    _$cryptoHistoryAtom.reportRead();
+    return super.cryptoHistory;
   }
 
   @override
-  set value(int value) {
-    _$valueAtom.reportWrite(value, super.value, () {
-      super.value = value;
+  set cryptoHistory(ObservableList<CryptoHistory> value) {
+    _$cryptoHistoryAtom.reportWrite(value, super.cryptoHistory, () {
+      super.cryptoHistory = value;
     });
   }
 
-  final _$_InfoControllerBaseActionController =
-      ActionController(name: '_InfoControllerBase');
+  final _$onRefreshAsyncAction = AsyncAction('_InfoControllerBase.onRefresh');
 
   @override
-  void increment() {
-    final _$actionInfo = _$_InfoControllerBaseActionController.startAction(
-        name: '_InfoControllerBase.increment');
-    try {
-      return super.increment();
-    } finally {
-      _$_InfoControllerBaseActionController.endAction(_$actionInfo);
-    }
+  Future onRefresh() {
+    return _$onRefreshAsyncAction.run(() => super.onRefresh());
+  }
+
+  final _$onLoadAsyncAction = AsyncAction('_InfoControllerBase.onLoad');
+
+  @override
+  Future onLoad() {
+    return _$onLoadAsyncAction.run(() => super.onLoad());
   }
 
   @override
   String toString() {
     return '''
-value: ${value}
+cryptoHistory: ${cryptoHistory}
     ''';
   }
 }

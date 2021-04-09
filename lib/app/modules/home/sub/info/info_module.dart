@@ -17,9 +17,7 @@ class InfoModule extends ChildModule {
   List<ModularRouter> get routers => [
         ModularRouter(
           Modular.initialRoute,
-          child: (_, args) => InfoPage(
-            crypto: crypto,
-          ),
+          child: (_, args) => InfoPage(),
         ),
       ];
 

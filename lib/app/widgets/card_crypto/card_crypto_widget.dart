@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+import 'package:getCrypto/app/modules/home/sub/info/info_controller.dart';
 import 'package:getCrypto/app/shared/models/Crypto.dart';
 import 'package:getCrypto/app/utils/getcrypto_colors.dart';
 import 'package:octo_image/octo_image.dart';
@@ -12,9 +13,15 @@ class CardCryptoWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final infoController = Modular.get<InfoController>();
+
     return GestureDetector(
       onTap: () {
-        Modular.to.pushNamed('/info', arguments: crypto);
+        infoController.crypto = crypto;
+
+        infoController
+            .onRefresh()
+            .whenComplete(() => Modular.to.pushNamed('/info'));
       },
       child: Container(
         height: 100,

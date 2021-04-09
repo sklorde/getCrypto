@@ -15,9 +15,7 @@ class HomeModule extends ChildModule {
         ModularRouter('/', child: (_, args) => HomePage()),
         ModularRouter(
           '/info',
-          child: (_, args) => InfoPage(
-            crypto: args.data,
-          ),
+          child: (_, args) => InfoPage(),
         ),
       ];
 
