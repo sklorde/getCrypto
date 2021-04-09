@@ -14,14 +14,7 @@ class InfoModule extends ChildModule {
       ];
 
   @override
-  List<ModularRouter> get routers => [
-        ModularRouter(
-          Modular.initialRoute,
-          child: (_, args) => InfoPage(
-            crypto: crypto,
-          ),
-        ),
-      ];
+  List<ModularRouter> get routers => [];
 
   static Inject get to => Inject<InfoModule>.of();
 }

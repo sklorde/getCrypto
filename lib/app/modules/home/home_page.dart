@@ -20,45 +20,14 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
         width: MediaQuery.of(context).size.width,
         color: GetCryptoColors.primary,
         child: Padding(
-          padding: EdgeInsets.all(20),
+          padding: EdgeInsets.fromLTRB(20, 30, 20, 20),
           child: Column(
             children: [
-              Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'getCrypto',
-                        style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.w500,
-                        ),
-                      ),
-                      Align(
-                        alignment: Alignment.centerRight,
-                        child: IconButton(
-                          icon: Icon(Icons.filter_list_rounded),
-                          iconSize: 38,
-                          color: Colors.white,
-                          onPressed: () {},
-                          enableFeedback: false,
-                          splashRadius: 0.1,
-                        ),
-                      ),
-                    ],
-                  ),
-                  Divider(color: GetCryptoColors.secundary),
-                ],
-              ),
               Expanded(
                 child: Observer(
                   builder: (_) {
                     return SmartRefresher(
                       controller: controller.refreshController,
-                      onLoading: controller.onLoad,
-                      onRefresh: controller.onRefresh,
                       enablePullDown: false,
                       enablePullUp: false,
                       child: ListView.separated(
