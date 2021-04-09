@@ -24,6 +24,11 @@ abstract class _InfoControllerBase with Store {
     // onRefresh();
   }
 
+  init(String name) async {
+    final list = await cryptoApi.getCryptoHistory(name);
+    cryptoHistory = list.asObservable();
+  }
+
   @action
   onRefresh() async {
     final list = await cryptoApi.getCryptoHistory(crypto.name);

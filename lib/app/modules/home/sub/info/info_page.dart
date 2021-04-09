@@ -7,12 +7,22 @@ import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'info_controller.dart';
 
 class InfoPage extends StatefulWidget {
+  final String name;
+
+  InfoPage(this.name);
+
   @override
   _InfoPageState createState() => _InfoPageState();
 }
 
 class _InfoPageState extends ModularState<InfoPage, InfoController> {
   int selected;
+
+  @override
+  initState() {
+    controller.init(widget.name);
+    super.initState();
+  }
 
   int getUnix(String time) {
     int result;
@@ -68,6 +78,14 @@ class _InfoPageState extends ModularState<InfoPage, InfoController> {
           ),
           Observer(
             builder: (context) {
+              if (controller.cryptoHistory.length == 0) {
+                return Expanded(
+                  child: Center(
+                    child: CircularProgressIndicator(),
+                  ),
+                );
+              }
+
               return Expanded(
                 child: SmartRefresher(
                   controller: controller.refreshController,

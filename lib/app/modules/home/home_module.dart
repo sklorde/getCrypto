@@ -14,8 +14,8 @@ class HomeModule extends ChildModule {
   List<ModularRouter> get routers => [
         ModularRouter('/', child: (_, args) => HomePage()),
         ModularRouter(
-          '/info',
-          child: (_, args) => InfoPage(),
+          '/info/:name',
+          child: (_, args) => InfoPage(args.params['name']),
         ),
       ];
 
