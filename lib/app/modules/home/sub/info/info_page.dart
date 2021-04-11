@@ -1,9 +1,7 @@
-import 'package:chips_choice/chips_choice.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:getCrypto/app/utils/getcrypto_colors.dart';
-import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'info_controller.dart';
 
 class InfoPage extends StatefulWidget {
@@ -55,65 +53,35 @@ class _InfoPageState extends ModularState<InfoPage, InfoController> {
       appBar: AppBar(
         backgroundColor: GetCryptoColors.primary,
         elevation: 0,
-        title: Text('teste'),
+        title: Text(widget.name),
       ),
-      body: Column(
-        children: <Widget>[
-          ChipsChoice<int>.single(
-            value: selected,
-            onChanged: (val) {
-              setState(
-                () {
-                  selected = val;
-                },
-              );
-            },
-            choiceItems: <C2Choice<int>>[
-              C2Choice<int>(value: 1, label: '1h'),
-              C2Choice<int>(value: 2, label: '24h'),
-              C2Choice<int>(value: 3, label: '7d'),
-              C2Choice<int>(value: 4, label: '30d'),
-              C2Choice<int>(value: 5, label: 'All'),
-            ],
-          ),
-          Observer(
-            builder: (context) {
-              if (controller.cryptoHistory.length == 0) {
-                return Expanded(
-                  child: Center(
-                    child: CircularProgressIndicator(),
-                  ),
-                );
-              }
-
-              return Expanded(
-                child: SmartRefresher(
-                  controller: controller.refreshController,
-                  onLoading: controller.onLoad,
-                  onRefresh: controller.onRefresh,
-                  enablePullDown: false,
-                  enablePullUp: false,
-                  child: ListView.separated(
-                    physics: BouncingScrollPhysics(),
-                    itemCount: controller.cryptoHistory.length,
-                    itemBuilder: (context, index) {
-                      final crypto = controller.cryptoHistory[index];
-
-                      return Container(
-                        height: 50,
-                        width: 50,
-                        color: Colors.white,
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return Padding(padding: EdgeInsets.only(top: 15));
-                    },
-                  ),
-                ),
-              );
-            },
-          ),
-        ],
+      body: Padding(
+        padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
+        child: Column(
+          children: <Widget>[
+            Container(
+              height: MediaQuery.of(context).size.height * 0.35,
+              color: Colors.white,
+            ),
+            Observer(
+              builder: (context) {
+                if (controller.cryptoHistory.length == 0) {
+                  return Expanded(
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                } else {
+                  return Expanded(
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
