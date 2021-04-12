@@ -14,6 +14,7 @@ abstract class _InfoControllerBase with Store {
   final cryptoApi = Modular.get<CryptoApiRepository>();
   final refreshController = RefreshController();
 
+  @observable
   Crypto crypto;
 
   @observable
