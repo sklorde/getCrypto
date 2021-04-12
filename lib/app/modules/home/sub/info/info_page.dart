@@ -88,12 +88,20 @@ class _InfoPageState extends ModularState<InfoPage, InfoController> {
                   );
                 } else {
                   return Expanded(
-                    child: Column(
+                    child: ListView(
+                      physics: BouncingScrollPhysics(),
                       children: [
+                        CardCryptoInfoWidget(
+                          title: 'Price',
+                          value: controller.crypto.priceUsd,
+                        ),
                         CardCryptoInfoWidget(
                           title: 'Supply',
                           value: controller.crypto.supply,
-                          crypto: controller.crypto,
+                        ),
+                        CardCryptoInfoWidget(
+                          title: 'Max Supply',
+                          value: controller.crypto.maxSupply,
                         ),
                       ],
                     ),
