@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:getCrypto/app/utils/getcrypto_colors.dart';
+import 'package:getCrypto/app/widgets/card_crypto_info/card_crypto_info_widget.dart';
 import 'info_controller.dart';
 
 class InfoPage extends StatefulWidget {
@@ -87,8 +88,14 @@ class _InfoPageState extends ModularState<InfoPage, InfoController> {
                   );
                 } else {
                   return Expanded(
-                    child: Container(
-                      color: Colors.white,
+                    child: Column(
+                      children: [
+                        CardCryptoInfoWidget(
+                          title: 'Supply',
+                          value: controller.crypto.supply,
+                          crypto: controller.crypto,
+                        ),
+                      ],
                     ),
                   );
                 }
