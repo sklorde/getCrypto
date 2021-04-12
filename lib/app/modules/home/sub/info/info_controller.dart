@@ -26,6 +26,7 @@ abstract class _InfoControllerBase with Store {
 
   init(String name) async {
     final list = await cryptoApi.getCryptoHistory(name);
+    crypto = await cryptoApi.getCryptoByName(name);
     cryptoHistory = list.asObservable();
   }
 

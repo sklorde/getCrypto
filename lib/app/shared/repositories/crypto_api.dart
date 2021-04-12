@@ -32,6 +32,18 @@ class CryptoApiRepository extends Disposable {
     return list;
   }
 
+  Future<Crypto> getCryptoByName(String cryptoName) async {
+    Crypto crypto;
+
+    String url = 'https://api.coincap.io/v2/assets/${cryptoName.toURL()}';
+
+    final result = await _client.get(url);
+
+    crypto = Crypto.fromJson(result.data['data']);
+
+    return crypto;
+  }
+
   Future<List<Crypto>> getCryptos() async {
     List<Crypto> list = <Crypto>[];
 
