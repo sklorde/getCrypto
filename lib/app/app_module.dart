@@ -1,3 +1,4 @@
+import 'widgets/card_crypto_info/card_crypto_info_controller.dart';
 import 'package:dio/native_imp.dart';
 import 'package:getCrypto/app/shared/repositories/crypto_api.dart';
 import 'modules/home/sub/info/info_controller.dart';
@@ -11,6 +12,7 @@ import 'package:getCrypto/app/modules/home/home_module.dart';
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
+        $CardCryptoInfoController,
         Bind((i) => CryptoApiRepository(DioForNative())),
         Bind((i) => AppController()),
         Bind((i) => CardCryptoController),

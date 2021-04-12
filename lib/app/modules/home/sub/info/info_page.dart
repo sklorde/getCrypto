@@ -59,13 +59,27 @@ class _InfoPageState extends ModularState<InfoPage, InfoController> {
         padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
         child: Column(
           children: <Widget>[
-            Container(
-              height: MediaQuery.of(context).size.height * 0.35,
-              color: Colors.white,
-            ),
             Observer(
               builder: (context) {
                 if (controller.cryptoHistory.length == 0) {
+                  return Expanded(
+                    child: Container(
+                      height: MediaQuery.of(context).size.height * 0.35,
+                      color: Colors.white,
+                    ),
+                  );
+                } else {
+                  return Expanded(
+                    child: Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  );
+                }
+              },
+            ),
+            Observer(
+              builder: (context) {
+                if (controller.crypto == null) {
                   return Expanded(
                     child: Center(
                       child: CircularProgressIndicator(),
@@ -73,8 +87,8 @@ class _InfoPageState extends ModularState<InfoPage, InfoController> {
                   );
                 } else {
                   return Expanded(
-                    child: Center(
-                      child: CircularProgressIndicator(),
+                    child: Container(
+                      color: Colors.white,
                     ),
                   );
                 }
