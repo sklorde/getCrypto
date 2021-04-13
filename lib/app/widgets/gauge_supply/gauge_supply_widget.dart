@@ -20,7 +20,7 @@ class GaugeSupplyWidget extends StatelessWidget {
             ),
           ),
           enableLoadingAnimation: true,
-          animationDuration: 3000,
+          animationDuration: 2500,
           axes: <RadialAxis>[
             RadialAxis(
               showLastLabel: true,

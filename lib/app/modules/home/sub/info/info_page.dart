@@ -39,23 +39,6 @@ class _InfoPageState extends ModularState<InfoPage, InfoController> {
           children: <Widget>[
             Observer(
               builder: (context) {
-                if (controller.cryptoHistory.length == 0) {
-                  return Expanded(
-                    child: Center(
-                      child: CircularProgressIndicator(),
-                    ),
-                  );
-                } else {
-                  return Expanded(
-                    child: GaugeSupplyWidget(
-                      controller.crypto,
-                    ),
-                  );
-                }
-              },
-            ),
-            Observer(
-              builder: (context) {
                 if (controller.crypto == null) {
                   return Expanded(
                     child: Center(
@@ -64,20 +47,29 @@ class _InfoPageState extends ModularState<InfoPage, InfoController> {
                   );
                 } else {
                   return Expanded(
-                    child: ListView(
-                      physics: BouncingScrollPhysics(),
+                    child: Column(
                       children: [
-                        CardCryptoInfoWidget(
-                          title: 'Price',
-                          value: controller.crypto.priceUsd,
+                        GaugeSupplyWidget(
+                          controller.crypto,
                         ),
-                        CardCryptoInfoWidget(
-                          title: 'Supply',
-                          value: controller.crypto.supply,
-                        ),
-                        CardCryptoInfoWidget(
-                          title: 'Max Supply',
-                          value: controller.crypto.maxSupply,
+                        Expanded(
+                          child: ListView(
+                            physics: BouncingScrollPhysics(),
+                            children: [
+                              CardCryptoInfoWidget(
+                                title: 'Price',
+                                value: controller.crypto.priceUsd,
+                              ),
+                              CardCryptoInfoWidget(
+                                title: 'Supply',
+                                value: controller.crypto.supply,
+                              ),
+                              CardCryptoInfoWidget(
+                                title: 'Max Supply',
+                                value: controller.crypto.maxSupply,
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
