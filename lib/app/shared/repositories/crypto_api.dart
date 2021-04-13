@@ -17,9 +17,14 @@ class CryptoApiRepository extends Disposable {
   Future<List<CryptoHistory>> getCryptoHistory(String cryptoName) async {
     List<CryptoHistory> list = <CryptoHistory>[];
 
-    String url =
-        'https://api.coincap.io/v2/assets/${cryptoName.toURL()}/history?interval=d1';
+    int unixStart;
+    int unixEnd;
 
+    unixStart = DateTime.now().millisecondsSinceEpoch - 604800000;
+    unixEnd = DateTime.now().millisecondsSinceEpoch;
+
+    String url =
+        'https://api.coincap.io/v2/assets/${cryptoName.toURL()}/history?interval=d1&start=$unixStart&end=$unixEnd';
     final result = await _client.get(url);
 
     result.data['data'].forEach(
