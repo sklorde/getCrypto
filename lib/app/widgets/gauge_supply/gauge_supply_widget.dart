@@ -1,79 +1,49 @@
 import 'package:flutter/material.dart';
-import 'package:getCrypto/app/shared/models/Crypto.dart';
-import 'package:syncfusion_flutter_gauges/gauges.dart';
+import 'package:flutter/services.dart';
+import 'package:getCrypto/app/shared/models/CryptoHistory.dart';
+import 'package:syncfusion_flutter_charts/charts.dart';
 
 class GaugeSupplyWidget extends StatelessWidget {
-  final Crypto crypto;
+  final CryptoHistory cryptoHistory;
 
-  const GaugeSupplyWidget(this.crypto);
+  const GaugeSupplyWidget(this.cryptoHistory);
 
   @override
   Widget build(BuildContext context) {
+    // void initState() {
+    //   _trackballBehavior = Track
+    // }
+
     return Center(
       child: Container(
-        child: SfRadialGauge(
-          title: GaugeTitle(
-            text: 'Supply x Max Supply',
-            textStyle: TextStyle(
-              color: Colors.white,
-              fontSize: 18,
-            ),
+        child: SfCartesianChart(
+          plotAreaBorderWidth: 0,
+          primaryXAxis: DateTimeAxis(majorGridLines: MajorGridLines(width: 0)),
+          primaryYAxis: NumericAxis(
+            // minimum: 1,
+            // maximum: controller.cryptoHistory.priceUsd;
+            // interval: 0.05;
+            labelFormat: '${cryptoHistory.priceUsd}',
+            axisLine: AxisLine(width: 0),
           ),
-          enableLoadingAnimation: true,
-          animationDuration: 2500,
-          axes: <RadialAxis>[
-            RadialAxis(
-              showLastLabel: true,
-              showFirstLabel: true,
-              useRangeColorForAxis: true,
-              interval: 1000000000000,
-              minimum: 0,
-              maximum: double.parse(crypto.maxSupply),
-              ranges: <GaugeRange>[
-                GaugeRange(
-                    startValue: 0,
-                    endValue: double.parse(crypto.maxSupply) / 4,
-                    color: Colors.green,
-                    startWidth: 10,
-                    endWidth: 10),
-                GaugeRange(
-                    startValue: double.parse(crypto.maxSupply) / 4,
-                    endValue: double.parse(crypto.maxSupply) / 2,
-                    color: Colors.orange),
-                GaugeRange(
-                  startValue: double.parse(crypto.maxSupply) / 2,
-                  endValue: double.parse(crypto.maxSupply),
-                  color: Colors.red,
-                )
-              ],
-              pointers: <GaugePointer>[
-                NeedlePointer(
-                  value: double.parse(crypto.supply),
-                  needleColor: Colors.white,
-                ),
-              ],
-              annotations: <GaugeAnnotation>[
-                GaugeAnnotation(
-                  widget: Container(
-                    child: Text(
-                      double.parse(crypto.supply).toStringAsFixed(0),
-                      style: TextStyle(
-                          fontSize: 25,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    ),
-                  ),
-                  angle: 90,
-                  positionFactor: 0.3,
-                ),
-              ],
-              axisLabelStyle: GaugeTextStyle(
-                color: Colors.white,
-              ),
-            ),
-          ],
+          // trackballBehavior: _trackballBehavior,
+          series: LineSeries(
+            dataSource: cryptoHistory.length,
+            xValueMapper: (CryptoHistory, data, _) => data.date,
+            yValueMapper: (CryptoHistory, data, _) => data.priceUsd,
+          ),
         ),
       ),
     );
   }
 }
+
+// List<LineSeries<CryptoHistory, DateTime>> _getDefaultDateTimeSeries() {
+//   return <LineSeries<CryptoHistory, DateTime>>[
+//     LineSeries(
+//       dataSource: cryptoHistory.length,
+//       xValueMapper: (CryptoHistory, data, _) => data.date,
+//       yValueMapper: (CryptoHistory, data, _) => data.priceUsd,
+//     ),
+//   ];
+// }

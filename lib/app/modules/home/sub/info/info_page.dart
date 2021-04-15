@@ -50,7 +50,7 @@ class _InfoPageState extends ModularState<InfoPage, InfoController> {
                     child: Column(
                       children: [
                         GaugeSupplyWidget(
-                          controller.crypto,
+                          controller.cryptoHistory,
                         ),
                         Expanded(
                           child: ListView(
