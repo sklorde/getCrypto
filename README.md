@@ -44,6 +44,7 @@ This software uses the following open source packages:
 - [Pull to Refresh](https://github.com/peng8350/flutter_pulltorefresh) [Refresh pages]
 - [Octo Image](https://github.com/Baseflow/octo_image) [Show image/error/placeholder]
 - [Cached Network Image](https://github.com/Baseflow/flutter_cached_network_image) [Image provider with cache to use with Octo Image]
+- [SyncFusion Gauge](https://pub.dev/packages/syncfusion_flutter_gauges) [To create a gauge graph]
 ## License
 
 MIT
