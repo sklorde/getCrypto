@@ -20,7 +20,7 @@ class CryptoApiRepository extends Disposable {
     int unixStart;
     int unixEnd;
 
-    unixStart = DateTime.now().millisecondsSinceEpoch - 604800000;
+    unixStart = DateTime.now().millisecondsSinceEpoch - 691200000;
     unixEnd = DateTime.now().millisecondsSinceEpoch;
 
     String url =
