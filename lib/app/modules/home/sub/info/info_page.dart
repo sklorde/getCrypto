@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
-import 'package:getCrypto/app/widgets/gauge_supply/gauge_supply_widget.dart';
+import 'package:getCrypto/app/widgets/coin_history_graph/coin_history_graph_widget.dart';
 import 'package:getCrypto/app/utils/getcrypto_colors.dart';
 import 'info_controller.dart';
 
@@ -50,7 +50,7 @@ class _InfoPageState extends ModularState<InfoPage, InfoController> {
                 } else {
                   return Column(
                     children: [
-                      GaugeSupplyWidget(
+                      CoinHistoryGraphWidget(
                         controller.cryptoHistory,
                         controller.crypto,
                       ),

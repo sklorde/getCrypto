@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:getCrypto/app/shared/models/Crypto.dart';
-import 'package:getCrypto/app/utils/getcrypto_colors.dart';
 import 'package:getCrypto/app/shared/models/CryptoHistory.dart';
+import 'package:getCrypto/app/utils/getcrypto_colors.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
 import 'package:intl/intl.dart';
 
-class GaugeSupplyWidget extends StatelessWidget {
+class CoinHistoryGraphWidget extends StatelessWidget {
   final List<CryptoHistory> cryptoHistory;
   final Crypto crypto;
 
-  const GaugeSupplyWidget(this.cryptoHistory, this.crypto);
+  const CoinHistoryGraphWidget(this.cryptoHistory, this.crypto);
 
   @override
   Widget build(BuildContext context) {

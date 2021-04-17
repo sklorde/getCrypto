@@ -1,3 +1,4 @@
+import 'widgets/coin_history_graph/coin_history_graph_controller.dart';
 import 'widgets/gauge_supply/gauge_supply_controller.dart';
 import 'widgets/card_crypto_info/card_crypto_info_controller.dart';
 import 'package:dio/native_imp.dart';
@@ -13,7 +14,7 @@ import 'package:getCrypto/app/modules/home/home_module.dart';
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
-        $GaugeSupplyController,
+        $CoinHistoryGraphController,
         $CardCryptoInfoController,
         Bind((i) => CryptoApiRepository(DioForNative())),
         Bind((i) => AppController()),
