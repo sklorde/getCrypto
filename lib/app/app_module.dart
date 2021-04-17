@@ -1,5 +1,4 @@
 import 'widgets/coin_history_graph/coin_history_graph_controller.dart';
-import 'widgets/gauge_supply/gauge_supply_controller.dart';
 import 'widgets/card_crypto_info/card_crypto_info_controller.dart';
 import 'package:dio/native_imp.dart';
 import 'package:getCrypto/app/shared/repositories/crypto_api.dart';
