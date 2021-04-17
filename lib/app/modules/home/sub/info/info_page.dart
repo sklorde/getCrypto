@@ -3,7 +3,6 @@ import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:getCrypto/app/widgets/gauge_supply/gauge_supply_widget.dart';
 import 'package:getCrypto/app/utils/getcrypto_colors.dart';
-import 'package:getCrypto/app/widgets/card_crypto_info/card_crypto_info_widget.dart';
 import 'info_controller.dart';
 
 class InfoPage extends StatefulWidget {
@@ -37,6 +36,9 @@ class _InfoPageState extends ModularState<InfoPage, InfoController> {
         padding: EdgeInsets.fromLTRB(20, 0, 20, 20),
         child: Column(
           children: <Widget>[
+            Container(
+              height: MediaQuery.of(context).size.height * 0.4,
+            ),
             Observer(
               builder: (context) {
                 if (controller.crypto == null) {
@@ -46,33 +48,13 @@ class _InfoPageState extends ModularState<InfoPage, InfoController> {
                     ),
                   );
                 } else {
-                  return Expanded(
-                    child: Column(
-                      children: [
-                        GaugeSupplyWidget(
-                          controller.cryptoHistory,
-                        ),
-                        Expanded(
-                          child: ListView(
-                            physics: BouncingScrollPhysics(),
-                            children: [
-                              CardCryptoInfoWidget(
-                                title: 'Price',
-                                value: controller.crypto.priceUsd,
-                              ),
-                              CardCryptoInfoWidget(
-                                title: 'Supply',
-                                value: controller.crypto.supply,
-                              ),
-                              CardCryptoInfoWidget(
-                                title: 'Max Supply',
-                                value: controller.crypto.maxSupply,
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
-                    ),
+                  return Column(
+                    children: [
+                      GaugeSupplyWidget(
+                        controller.cryptoHistory,
+                        controller.crypto,
+                      ),
+                    ],
                   );
                 }
               },
