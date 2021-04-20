@@ -15,7 +15,6 @@ environment:
 
 dependencies:
   syncfusion_flutter_charts: ^19.1.56
-  syncfusion_flutter_gauges: ^19.1.55
   cached_network_image: 2.2.0
   octo_image: ^1.0.0+1
   dio: ^3.0.10
