@@ -20,7 +20,7 @@ class CoinHistoryGraphWidget extends StatelessWidget {
 
     final List<double> stops = <double>[];
     stops.add(0.0);
-    stops.add(0.5);
+    stops.add(0.2);
     stops.add(1.0);
 
     return Stack(
