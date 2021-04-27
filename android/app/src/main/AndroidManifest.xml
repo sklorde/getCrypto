@@ -8,7 +8,7 @@
          <uses-permission android:name="android.permission.INTERNET"/>
     <application
         android:name="io.flutter.app.FlutterApplication"
-        android:label="getCrypto"
+        android:label="fifa_stats"
         android:icon="@mipmap/ic_launcher">
         <activity
             android:name=".MainActivity"
