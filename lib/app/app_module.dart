@@ -13,8 +13,8 @@ import 'package:getCrypto/app/modules/home/home_module.dart';
 class AppModule extends MainModule {
   @override
   List<Bind> get binds => [
-        $CoinHistoryGraphController,
-        $CardCryptoInfoController,
+        Bind((i) => CoinHistoryGraphController()),
+        Bind((i) => CardCryptoInfoController()),
         Bind((i) => CryptoApiRepository(DioForNative())),
         Bind((i) => AppController()),
         Bind((i) => CardCryptoController),
