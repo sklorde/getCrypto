@@ -14,6 +14,9 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  diacritic: ^0.1.3
+  implicitly_animated_list: ^2.1.0
+  material_floating_search_bar: ^0.3.4
   syncfusion_flutter_charts: ^19.1.56
   cached_network_image: 2.2.0
   octo_image: ^1.0.0+1
