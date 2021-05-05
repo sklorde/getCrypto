@@ -22,7 +22,7 @@ class _HomePageState extends ModularState<HomePage, HomeController> {
         body: Container(
           color: GetCryptoColors.primary,
           child: Padding(
-            padding: EdgeInsets.fromLTRB(20, 70, 20, 0),
+            padding: EdgeInsets.fromLTRB(20, 90, 20, 0),
             child: Column(
               children: [
                 Expanded(
