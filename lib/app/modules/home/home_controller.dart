@@ -10,7 +10,7 @@ part 'home_controller.g.dart';
 class HomeController = _HomeControllerBase with _$HomeController;
 
 abstract class _HomeControllerBase with Store {
-  final crytpApi = Modular.get<CryptoApiRepository>();
+  final cryptoApi = Modular.get<CryptoApiRepository>();
   final refreshController = RefreshController();
 
   @observable
@@ -22,14 +22,14 @@ abstract class _HomeControllerBase with Store {
 
   @action
   onRefresh() async {
-    final list = await crytpApi.getCryptos();
+    final list = await cryptoApi.getCryptos();
     cryptos = list.asObservable();
     refreshController.refreshCompleted();
   }
 
   @action
   onLoad() async {
-    final list = await crytpApi.getCryptos();
+    final list = await cryptoApi.getCryptos();
     cryptos.addAll(list.asObservable());
     refreshController.loadComplete();
   }
